@@ -29,14 +29,18 @@ Namespace BindToMsSqlDatabaseFileExample
 			Dim connectionParameters As New CustomStringConnectionParameters()
 			connectionParameters.ConnectionString = "XpoProvider=MSSqlServer;Data Source=(LocalDB)\MSSQLLocalDB;" & "AttachDbFilename=|DataDirectory|\NW19.mdf;" & "Integrated Security=True"
 			Dim sqlDataSource As New DashboardSqlDataSource("NW19 SQL Server Database File", connectionParameters)
+			' Comment out two lines to use CustomSqlQuery and SQL string expression.
 			Dim selectQuery As SelectQuery = CreateSqlQuery()
 			sqlDataSource.Queries.Add(selectQuery)
+			' Uncomment two lines to to use CustomSqlQuery and SQL string expression.
+			'CustomSqlQuery selectQuery = CreateSqlStringQuery();
+			'sqlDataSource.Queries.Add(selectQuery);
 			sqlDataSource.CalculatedFields.AddRange(CreateCalculatedFields(selectQuery))
 			sqlDataSource.Fill()
 			Return sqlDataSource
 		End Function
 
-		Private Shared Function CreateCalculatedFields(ByVal selectQuery As SelectQuery) As CalculatedFieldCollection
+		Private Shared Function CreateCalculatedFields(ByVal selectQuery As SqlQuery) As CalculatedFieldCollection
 			Dim fieldSalesPerson As New CalculatedField() With {.Name = "Sales Person", .DataMember = selectQuery.Name, .Expression = "Concat([FirstName], ' ', [LastName])"}
 			Dim fieldExtPrice As New CalculatedField() With {.Name = "Extended Price", .DataMember = selectQuery.Name, .Expression = "[Quantity] * [UnitPrice]"}
 			Return New CalculatedFieldCollection() From { fieldSalesPerson, fieldExtPrice }
@@ -64,6 +68,7 @@ Namespace BindToMsSqlDatabaseFileExample
 		Private Function CreateDashboard() As Dashboard
 			Dim dBoard As New Dashboard()
 			Dim chart As New ChartDashboardItem()
+
 			chart.Arguments.Add(New Dimension("OrderDate", DateTimeGroupInterval.MonthYear))
 			chart.Panes.Add(New ChartPane())
 			Dim salesAmountSeries As New SimpleSeries(SimpleSeriesType.SplineArea)
@@ -74,6 +79,11 @@ Namespace BindToMsSqlDatabaseFileExample
 			grid.Columns.Add(New GridMeasureColumn(New Measure("Extended Price")))
 			dBoard.Items.AddRange(chart, grid)
 			Return dBoard
+		End Function
+
+		Private Shared Function CreateSqlStringQuery() As CustomSqlQuery
+			Dim customSqlStringQuery As New CustomSqlQuery() With {.Name = "SalesPersons", .Sql = "SELECT Categories.CategoryName, [Order Details].UnitPrice, [Order Details].Quantity, Products.ProductName, Orders.OrderDate, Employees.LastName, Employees.FirstName FROM Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID INNER JOIN Products ON [Order Details].ProductID = Products.ProductID INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID"}
+			Return customSqlStringQuery
 		End Function
 	End Class
 End Namespace

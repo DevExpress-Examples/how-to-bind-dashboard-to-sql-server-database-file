@@ -14,7 +14,7 @@ XpoProvider=MSSqlServer;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|Dat
 
 ![screenshot](/images/screenshot.png)
 
-The [SelectQuery](https://docs.devexpress.com/CoreLibraries/DevExpress.DataAccess.Sql.SelectQuery) object is used to build a SQL query in code. 
+The [SelectQuery](https://docs.devexpress.com/CoreLibraries/DevExpress.DataAccess.Sql.SelectQuery) object is used to build a SQL query in code. You can also use the [CustomSqlQuery](https://docs.devexpress.com/CoreLibraries/DevExpress.DataAccess.Sql.CustomSqlQuery) to specify a SQL expression string.
 
 > The [SelectQueryFluentBuilder](https://docs.devexpress.com/CoreLibraries/DevExpress.DataAccess.Sql.SelectQueryFluentBuilder) instance in not appropriate for this query because it does not support multiple JOINs.
 

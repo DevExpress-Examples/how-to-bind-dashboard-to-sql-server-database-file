@@ -38,14 +38,18 @@ namespace BindToMsSqlDatabaseFileExample
                 @"Integrated Security=True";
             DashboardSqlDataSource sqlDataSource =
                 new DashboardSqlDataSource("NW19 SQL Server Database File", connectionParameters);
+            // Comment out two lines to use CustomSqlQuery and SQL string expression.
             SelectQuery selectQuery = CreateSqlQuery();
             sqlDataSource.Queries.Add(selectQuery);
+            // Uncomment two lines to to use CustomSqlQuery and SQL string expression.
+            //CustomSqlQuery selectQuery = CreateSqlStringQuery();
+            //sqlDataSource.Queries.Add(selectQuery);
             sqlDataSource.CalculatedFields.AddRange(CreateCalculatedFields(selectQuery));
             sqlDataSource.Fill();
             return sqlDataSource;
         }
 
-        private static CalculatedFieldCollection CreateCalculatedFields(SelectQuery selectQuery)
+        private static CalculatedFieldCollection CreateCalculatedFields(SqlQuery selectQuery)
         {
             CalculatedField fieldSalesPerson = new CalculatedField()
             {
@@ -85,7 +89,7 @@ namespace BindToMsSqlDatabaseFileExample
         private Dashboard CreateDashboard()
         {
             Dashboard dBoard = new Dashboard();
-            ChartDashboardItem chart = new ChartDashboardItem();;
+            ChartDashboardItem chart = new ChartDashboardItem(); ;
             chart.Arguments.Add(new Dimension("OrderDate", DateTimeGroupInterval.MonthYear));
             chart.Panes.Add(new ChartPane());
             SimpleSeries salesAmountSeries = new SimpleSeries(SimpleSeriesType.SplineArea);
@@ -96,6 +100,21 @@ namespace BindToMsSqlDatabaseFileExample
             grid.Columns.Add(new GridMeasureColumn(new Measure("Extended Price")));
             dBoard.Items.AddRange(chart, grid);
             return dBoard;
+        }
+
+        private static CustomSqlQuery CreateSqlStringQuery()
+        {
+            CustomSqlQuery customSqlStringQuery = new CustomSqlQuery()
+            {
+                Name = "SalesPersons",
+                Sql = @"SELECT Categories.CategoryName, [Order Details].UnitPrice, [Order Details].Quantity, 
+                               Products.ProductName, Orders.OrderDate, Employees.LastName, Employees.FirstName
+                        FROM Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID 
+                                    INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID 
+                                    INNER JOIN Products ON [Order Details].ProductID = Products.ProductID 
+                                    INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID"
+            };
+            return customSqlStringQuery;
         }
     }
 }
