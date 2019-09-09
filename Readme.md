@@ -8,8 +8,14 @@ To bind the dashboard to the Microsoft SQL Server database file, create a [Dashb
 
 The following connection string is used for .MDF file in this example:
 
-```language
+```code
 XpoProvider=MSSqlServer;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\NW19.mdf;Integrated Security=True
+```
+
+Database and log files NW19.mdf and NW19.ldf are not incuded in the project. They are copied to the working directory with the following post-build event command:
+
+```sh
+xcopy "$(ProjectDir)Database1*.*" $(TargetDir) /Y
 ```
 
 ![screenshot](/images/screenshot.png)
