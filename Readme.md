@@ -15,7 +15,7 @@ XpoProvider=MSSqlServer;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|Dat
 Database and log files NW19.mdf and NW19.ldf are not incuded in the project. They are copied to the working directory with the following post-build event command:
 
 ```sh
-xcopy "$(ProjectDir)Database1*.*" $(TargetDir) /Y
+xcopy "$(ProjectDir)NW19*.*" $(TargetDir) /Y
 ```
 
 ![screenshot](/images/screenshot.png)

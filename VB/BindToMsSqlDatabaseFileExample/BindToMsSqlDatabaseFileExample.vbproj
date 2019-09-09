@@ -160,6 +160,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)NW19.*" $(TargetDir) /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)NW19*.*" $(TargetDir) /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>

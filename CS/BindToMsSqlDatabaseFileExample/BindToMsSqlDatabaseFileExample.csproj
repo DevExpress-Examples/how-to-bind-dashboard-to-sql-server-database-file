@@ -143,6 +143,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)NW19.*" $(TargetDir) /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)NW19*.*" $(TargetDir) /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>
