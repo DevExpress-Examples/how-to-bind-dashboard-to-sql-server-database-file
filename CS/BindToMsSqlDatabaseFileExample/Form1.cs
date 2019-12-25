@@ -4,10 +4,8 @@ using DevExpress.DataAccess.Sql;
 
 namespace BindToMsSqlDatabaseFileExample
 {
-    public partial class Form1 : DevExpress.XtraEditors.XtraForm
-    {
-        public Form1()
-        {
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm {
+        public Form1() {
             InitializeComponent();
             dashboardDesigner1.CreateRibbon();
             Dashboard currentDashboard = CreateDashboard();
@@ -15,22 +13,18 @@ namespace BindToMsSqlDatabaseFileExample
             dashboardDesigner1.Dashboard = currentDashboard;
         }
 
-        private void BindDataSource(Dashboard dashboard, DashboardSqlDataSource dashboardSqlDataSource)
-        {
+        private void BindDataSource(Dashboard dashboard, DashboardSqlDataSource dashboardSqlDataSource) {
             dashboard.DataSources.Add(dashboardSqlDataSource);
-            foreach (var item in dashboard.Items)
-            {
+            foreach (var item in dashboard.Items) {
                 DataDashboardItem dataItem = item as DataDashboardItem;
-                if (dataItem != null)
-                {
+                if (dataItem != null) {
                     dataItem.DataSource = dashboardSqlDataSource;
                     dataItem.DataMember = dashboardSqlDataSource.Queries[0].Name;
                 }
             }
         }
 
-        private DashboardSqlDataSource CreateDataSource()
-        {
+        private DashboardSqlDataSource CreateDataSource() {
             CustomStringConnectionParameters connectionParameters = new CustomStringConnectionParameters();
             connectionParameters.ConnectionString =
                 @"XpoProvider=MSSqlServer;Data Source=(LocalDB)\MSSQLLocalDB;" +
@@ -49,16 +43,13 @@ namespace BindToMsSqlDatabaseFileExample
             return sqlDataSource;
         }
 
-        private static CalculatedFieldCollection CreateCalculatedFields(SqlQuery selectQuery)
-        {
-            CalculatedField fieldSalesPerson = new CalculatedField()
-            {
+        private static CalculatedFieldCollection CreateCalculatedFields(SqlQuery selectQuery) {
+            CalculatedField fieldSalesPerson = new CalculatedField() {
                 Name = "Sales Person",
                 DataMember = selectQuery.Name,
                 Expression = "Concat([FirstName], ' ', [LastName])"
             };
-            CalculatedField fieldExtPrice = new CalculatedField()
-            {
+            CalculatedField fieldExtPrice = new CalculatedField() {
                 Name = "Extended Price",
                 DataMember = selectQuery.Name,
                 Expression = "[Quantity] * [UnitPrice]",
@@ -66,8 +57,7 @@ namespace BindToMsSqlDatabaseFileExample
             return new CalculatedFieldCollection() { fieldSalesPerson, fieldExtPrice };
         }
 
-        private static SelectQuery CreateSqlQuery()
-        {
+        private static SelectQuery CreateSqlQuery() {
             SelectQuery selectQuery = new SelectQuery("SalesPersons");
             var orders = selectQuery.AddTable("Orders");
             var order_details = selectQuery.AddTable("Order Details");
@@ -85,9 +75,8 @@ namespace BindToMsSqlDatabaseFileExample
             selectQuery.SelectColumn(categories, "CategoryName");
             return selectQuery;
         }
-
-        private Dashboard CreateDashboard()
-        {
+ 
+        private Dashboard CreateDashboard() {
             Dashboard dBoard = new Dashboard();
             ChartDashboardItem chart = new ChartDashboardItem();
             chart.Arguments.Add(new Dimension("OrderDate", DateTimeGroupInterval.MonthYear));
@@ -102,10 +91,8 @@ namespace BindToMsSqlDatabaseFileExample
             return dBoard;
         }
 
-        private static CustomSqlQuery CreateSqlStringQuery()
-        {
-            CustomSqlQuery customSqlStringQuery = new CustomSqlQuery()
-            {
+        private static CustomSqlQuery CreateSqlStringQuery() {
+            CustomSqlQuery customSqlStringQuery = new CustomSqlQuery() {
                 Name = "SalesPersons",
                 Sql = @"SELECT Categories.CategoryName, [Order Details].UnitPrice, [Order Details].Quantity, 
                                Products.ProductName, Orders.OrderDate, Employees.LastName, Employees.FirstName
