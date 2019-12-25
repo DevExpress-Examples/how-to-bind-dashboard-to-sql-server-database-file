@@ -89,7 +89,7 @@ namespace BindToMsSqlDatabaseFileExample
         private Dashboard CreateDashboard()
         {
             Dashboard dBoard = new Dashboard();
-            ChartDashboardItem chart = new ChartDashboardItem(); ;
+            ChartDashboardItem chart = new ChartDashboardItem();
             chart.Arguments.Add(new Dimension("OrderDate", DateTimeGroupInterval.MonthYear));
             chart.Panes.Add(new ChartPane());
             SimpleSeries salesAmountSeries = new SimpleSeries(SimpleSeriesType.SplineArea);
