@@ -1,3 +1,7 @@
+*Files to look at*:
+
+* [Form1.cs](./CS/BindToMsSqlDatabaseFileExample/Form1.cs) (VB: [Form1.vb](./VB/BindToMsSqlDatabaseFileExample/Form1.vb))
+
 # How to: Bind a Dashboard to a Microsoft SQL Server Database File at Runtime
 
 This example demonstrates how to bind a Microsoft SQL Server database file (.MDF) at runtime to a dashboard created in code.
@@ -29,7 +33,7 @@ The dashboard uses [calculated fields](https://docs.devexpress.com/Dashboard/161
 
 To bind dashboard items and calculated fields to the [SQL Data Source](https://docs.devexpress.com/Dashboard/16151), you should specify the Data Member setting. It is the name of the created SelectQuery.
 
-See also:
+## Documentation
 
 * [Connecting to a Data Source](https://docs.devexpress.com/Dashboard/116879)
 * [Providing Data](https://docs.devexpress.com/Dashboard/12146)
