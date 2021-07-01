@@ -2,7 +2,7 @@
 
 * [Form1.cs](./CS/BindToMsSqlDatabaseFileExample/Form1.cs) (VB: [Form1.vb](./VB/BindToMsSqlDatabaseFileExample/Form1.vb))
 
-# How to: Bind a Dashboard to a Microsoft SQL Server Database File at Runtime
+# Dashboard for WinForms - How to bind a dashboard to a Microsoft SQL Server database file at runtime
 
 This example demonstrates how to bind a Microsoft SQL Server database file (.MDF) at runtime to a dashboard created in code.
 
