@@ -40,3 +40,9 @@ To bind dashboard items and calculated fields to the [SQL Data Source](https://d
 * [Connecting to a Data Source](https://docs.devexpress.com/Dashboard/116879)
 * [Providing Data](https://docs.devexpress.com/Dashboard/12146)
 * [Dashboard.ConfigureDataConnection](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.Dashboard.ConfigureDataConnection) event
+
+## More Examples
+
+* [Dashboard for WinForms - How to Bind a Dashboard to an SQL Data Source](https://github.com/DevExpress-Examples/how-to-bind-a-dashboard-to-a-sql-database-using-dashboardsqldatasource-e5107)
+* [Dashboard for WinForms - How to Replace the Dashboard Sql Data Source with the Dashboard Object Data Source](https://github.com/DevExpress-Examples/how-to-replace-dashboardsqldatasource-with-dashboardobjectdatasource-with-filtered-data-t556647)
+* [Dashboard for WPF - How to bind a dashboard to a Microsoft SQL Server database file](https://github.com/DevExpress-Examples/wpf-dashboard-how-to-bind-to-sql-database-file)
