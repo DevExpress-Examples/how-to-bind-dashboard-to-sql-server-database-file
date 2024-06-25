@@ -2,6 +2,7 @@
 ![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/198263101/19.1.3%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T828589)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
 # Dashboard for WinForms - How to Bind a Dashboard to a Microsoft SQL Server Database File at Runtime
@@ -53,3 +54,10 @@ To bind dashboard items and calculated fields to the [SQL Data Source](https://d
 * [Dashboard for WinForms - How to Bind a Dashboard to an SQL Data Source](https://github.com/DevExpress-Examples/how-to-bind-a-dashboard-to-a-sql-database-using-dashboardsqldatasource-e5107)
 * [Dashboard for WinForms - How to Replace the Dashboard Sql Data Source with the Dashboard Object Data Source](https://github.com/DevExpress-Examples/how-to-replace-dashboardsqldatasource-with-dashboardobjectdatasource-with-filtered-data-t556647)
 * [Dashboard for WPF - How to bind a dashboard to a Microsoft SQL Server database file](https://github.com/DevExpress-Examples/wpf-dashboard-how-to-bind-to-sql-database-file)
+<!-- feedback -->
+## Does this example address your development requirements/objectives?
+
+[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-bind-dashboard-to-sql-server-database-file&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-bind-dashboard-to-sql-server-database-file&~~~was_helpful=no)
+
+(you will be redirected to DevExpress.com to submit your response)
+<!-- feedback end -->
