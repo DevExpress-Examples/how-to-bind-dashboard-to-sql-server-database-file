@@ -55,7 +55,7 @@ To bind dashboard items and calculated fields to the [SQL Data Source](https://d
 * [Dashboard for WinForms - How to Replace the Dashboard Sql Data Source with the Dashboard Object Data Source](https://github.com/DevExpress-Examples/how-to-replace-dashboardsqldatasource-with-dashboardobjectdatasource-with-filtered-data-t556647)
 * [Dashboard for WPF - How to bind a dashboard to a Microsoft SQL Server database file](https://github.com/DevExpress-Examples/wpf-dashboard-how-to-bind-to-sql-database-file)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-dashboard-bind-to-sql-server-database-file&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-dashboard-bind-to-sql-server-database-file&~~~was_helpful=no)
 
